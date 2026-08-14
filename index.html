@@ -1,0 +1,1297 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DOD Engenharia | Manutenção Predial, Serviços Civis e Industriais</title>
+<meta name="description" content="DOD Engenharia: manutenção predial, pintura, serviços civis e industriais, linha de vida e limpeza de placas solares. Experiência prática e compromisso com qualidade e segurança. Solicite um orçamento.">
+<meta name="keywords" content="empresa de manutenção predial, empresa de pintura predial, limpeza de placa solar, instalação de linha de vida, manutenção industrial, serviços civis">
+<link rel="canonical" href="https://www.seudominio.com.br/">
+<link rel="icon" type="image/png" href="assets/logo-dod-engenharia.png">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="DOD Engenharia | Manutenção Predial, Serviços Civis e Industriais">
+<meta property="og:description" content="Experiência, qualidade e segurança para cuidar da manutenção e conservação do seu patrimônio.">
+<meta property="og:image" content="assets/logo-dod-engenharia.png">
+<meta property="og:locale" content="pt_BR">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================
+   TOKENS
+   ============================================ */
+:root{
+  --bg:#12151a;
+  --bg-alt:#181c22;
+  --bg-alt-2:#0e1013;
+  --surface:#1e242b;
+  --surface-2:#262d35;
+  --border:#2c343d;
+  --border-soft:#232a31;
+  --text:#f1f4f6;
+  --text-muted:#9aa5b0;
+  --text-dim:#69737e;
+  --accent:#4a95d6;
+  --accent-dim:#2f5f87;
+  --accent-2:#f0a63d;
+  --accent-2-dim:#a67326;
+  --radius:2px;
+  --maxw:1280px;
+  --disp:"Barlow Condensed", sans-serif;
+  --body:"Inter", sans-serif;
+  --mono:"IBM Plex Mono", monospace;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto;}
+  *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important;}
+}
+body{
+  font-family:var(--body);
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+ul{list-style:none;}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit;}
+input,textarea,select{font-family:inherit;}
+:focus-visible{outline:2px solid var(--accent-2);outline-offset:3px;}
+.container{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+@media(min-width:768px){.container{padding:0 40px;}}
+
+h1,h2,h3,h4{font-family:var(--disp);font-weight:700;letter-spacing:0.01em;line-height:1.05;text-transform:uppercase;}
+.eyebrow{
+  font-family:var(--mono);
+  font-size:12px;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  color:var(--accent);
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:14px;
+}
+.eyebrow::before{content:"";width:22px;height:1px;background:var(--accent);display:block;}
+
+/* blueprint texture */
+.blueprint{
+  background-image:
+    linear-gradient(var(--border-soft) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border-soft) 1px, transparent 1px);
+  background-size:44px 44px;
+}
+.crosshair{position:relative;}
+.crosshair::before,.crosshair::after{
+  content:"";position:absolute;width:14px;height:14px;
+  border:1px solid var(--accent);opacity:0.55;pointer-events:none;
+}
+.crosshair::before{top:-1px;left:-1px;border-right:none;border-bottom:none;}
+.crosshair::after{bottom:-1px;right:-1px;border-left:none;border-top:none;}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+.btn{
+  font-family:var(--mono);
+  font-size:13px;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  padding:15px 28px;
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  border:1px solid transparent;
+  transition:all .2s ease;
+  white-space:nowrap;
+}
+.btn-primary{background:var(--accent-2);color:#171207;font-weight:600;}
+.btn-primary:hover{background:#ffb955;transform:translateY(-2px);}
+.btn-outline{border-color:var(--border);color:var(--text);}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent);}
+.btn-ghost{color:var(--accent);}
+.btn-ghost:hover{color:var(--accent-2);}
+.btn svg{width:16px;height:16px;flex-shrink:0;}
+
+/* ============================================
+   HEADER
+   ============================================ */
+.site-header{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  background:rgba(18,21,26,0.88);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--border-soft);
+  transition:padding .25s ease;
+}
+.site-header .container{
+  display:flex;align-items:center;justify-content:space-between;
+  padding-top:20px;padding-bottom:20px;transition:padding .25s ease;
+}
+.site-header.scrolled .container{padding-top:12px;padding-bottom:12px;}
+.logo{font-family:var(--disp);font-size:22px;letter-spacing:0.02em;text-transform:uppercase;display:flex;align-items:center;gap:10px;}
+.logo-badge{background:#fff;padding:5px 7px;line-height:0;flex-shrink:0;border-radius:3px;}
+.logo-badge img{height:38px;width:auto;display:block;}
+.logo-wordmark{display:none;}
+@media(min-width:1000px){.logo-wordmark{display:inline;}}
+.nav-desktop{display:none;}
+@media(min-width:1000px){
+  .nav-desktop{display:flex;align-items:center;gap:36px;}
+}
+.nav-desktop a{
+  font-family:var(--mono);font-size:13px;text-transform:uppercase;letter-spacing:0.06em;
+  color:var(--text-muted);position:relative;padding:4px 0;transition:color .2s;
+}
+.nav-desktop a:hover{color:var(--text);}
+.nav-desktop a::after{content:"";position:absolute;bottom:-2px;left:0;width:0;height:1px;background:var(--accent-2);transition:width .2s;}
+.nav-desktop a:hover::after{width:100%;}
+.nav-actions{display:flex;align-items:center;gap:18px;}
+.hamburger{display:flex;flex-direction:column;gap:5px;width:26px;z-index:210;}
+.hamburger span{display:block;height:2px;background:var(--text);transition:all .25s ease;}
+@media(min-width:1000px){.hamburger{display:none;}}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+.mobile-nav{
+  position:fixed;inset:0;background:var(--bg-alt-2);z-index:190;
+  display:flex;flex-direction:column;justify-content:center;padding:24px;
+  transform:translateY(-100%);transition:transform .35s ease;
+}
+.mobile-nav.open{transform:translateY(0);}
+.mobile-nav a{
+  font-family:var(--disp);font-size:34px;text-transform:uppercase;padding:14px 0;
+  border-bottom:1px solid var(--border-soft);color:var(--text);
+}
+.mobile-nav .btn{margin-top:24px;align-self:flex-start;}
+
+/* ============================================
+   HERO
+   ============================================ */
+.hero{
+  position:relative;min-height:100vh;display:flex;align-items:flex-end;
+  padding:140px 0 80px;overflow:hidden;
+}
+.hero-media{
+  position:absolute;inset:0;z-index:0;
+  background:
+    linear-gradient(180deg, rgba(18,21,26,0.35) 0%, rgba(18,21,26,0.55) 55%, var(--bg) 96%),
+    repeating-linear-gradient(135deg, #232a31 0, #232a31 2px, #1a1f25 2px, #1a1f25 22px);
+}
+.hero-media-label{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  text-align:center;color:var(--text-dim);font-family:var(--mono);font-size:13px;
+  letter-spacing:0.08em;text-transform:uppercase;
+}
+.hero-media-label svg{width:36px;height:36px;margin:0 auto 10px;opacity:0.6;}
+.hero .container{position:relative;z-index:2;}
+.hero-tag{font-family:var(--mono);font-size:12px;color:var(--accent-2);text-transform:uppercase;letter-spacing:0.14em;margin-bottom:18px;display:flex;align-items:center;gap:10px;}
+.hero-tag::before{content:"";width:8px;height:8px;background:var(--accent-2);display:block;}
+.hero h1{font-size:clamp(38px,7vw,78px);max-width:900px;margin-bottom:22px;}
+.hero p.lead{font-size:clamp(16px,2vw,19px);color:var(--text-muted);max-width:560px;margin-bottom:36px;font-family:var(--body);text-transform:none;}
+.hero-actions{display:flex;flex-wrap:wrap;gap:16px;margin-bottom:56px;}
+.hero-indicators{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:0;
+  border-top:1px solid var(--border);
+}
+@media(min-width:768px){.hero-indicators{grid-template-columns:repeat(3,1fr);}}
+@media(min-width:1100px){.hero-indicators{grid-template-columns:repeat(6,1fr);}}
+.hero-indicators li{
+  padding:16px 18px 0;border-right:1px solid var(--border);
+  font-family:var(--mono);font-size:12px;letter-spacing:0.04em;color:var(--text-muted);
+  display:flex;align-items:center;gap:8px;text-transform:uppercase;
+}
+.hero-indicators li svg{width:14px;height:14px;color:var(--accent);flex-shrink:0;}
+
+/* ============================================
+   SECTION GENERIC
+   ============================================ */
+.section{padding:100px 0;position:relative;}
+.section-alt{background:var(--bg-alt);}
+.section-head{max-width:680px;margin-bottom:56px;}
+.section-head h2{font-size:clamp(30px,4.2vw,48px);}
+.section-head p{color:var(--text-muted);margin-top:16px;font-size:16px;}
+.section-num{position:absolute;top:44px;right:24px;font-family:var(--mono);font-size:12px;color:var(--text-dim);letter-spacing:0.1em;}
+@media(min-width:768px){.section-num{right:40px;}}
+
+/* ============================================
+   SOBRE
+   ============================================ */
+.about-grid{display:grid;gap:48px;}
+@media(min-width:900px){.about-grid{grid-template-columns:1fr 1fr;align-items:center;gap:64px;}}
+.about-media{
+  aspect-ratio:4/5;background:var(--surface);border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;position:relative;
+}
+.about-media .placeholder-label{color:var(--text-dim);font-family:var(--mono);font-size:12px;text-align:center;text-transform:uppercase;letter-spacing:0.06em;}
+.about-media .placeholder-label svg{width:32px;height:32px;margin:0 auto 10px;opacity:0.5;}
+.about-copy p{color:var(--text-muted);margin-bottom:18px;font-size:16px;}
+.about-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border);margin-top:36px;border:1px solid var(--border);}
+.about-stats div{background:var(--bg-alt);padding:20px;}
+.about-stats .k{font-family:var(--mono);font-size:12px;color:var(--accent);text-transform:uppercase;letter-spacing:0.06em;display:block;margin-bottom:6px;}
+.about-stats .v{font-family:var(--disp);font-size:17px;text-transform:none;letter-spacing:0;color:var(--text-muted);font-weight:600;}
+
+/* ============================================
+   SERVICES
+   ============================================ */
+.services-grid{display:grid;grid-template-columns:1fr;gap:1px;background:var(--border);border:1px solid var(--border);}
+@media(min-width:640px){.services-grid{grid-template-columns:1fr 1fr;}}
+@media(min-width:1000px){.services-grid{grid-template-columns:repeat(4,1fr);}}
+.service-card{background:var(--bg-alt);padding:34px 26px;display:flex;flex-direction:column;transition:background .2s;}
+.service-card:hover{background:var(--surface);}
+.service-icon{width:42px;height:42px;border:1px solid var(--accent-dim);color:var(--accent);display:flex;align-items:center;justify-content:center;margin-bottom:22px;}
+.service-icon svg{width:22px;height:22px;}
+.service-card h3{font-size:21px;margin-bottom:10px;}
+.service-card p{color:var(--text-muted);font-size:14.5px;flex-grow:1;margin-bottom:22px;text-transform:none;}
+.service-card .btn-ghost{font-size:12px;display:inline-flex;align-items:center;gap:6px;}
+.service-card .btn-ghost svg{width:13px;height:13px;transition:transform .2s;}
+.service-card .btn-ghost:hover svg{transform:translateX(3px);}
+
+/* ============================================
+   PORTFOLIO
+   ============================================ */
+.filters{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:44px;}
+.filter-btn{
+  font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:0.05em;
+  padding:10px 18px;border:1px solid var(--border);color:var(--text-muted);transition:all .2s;
+}
+.filter-btn:hover{border-color:var(--accent);color:var(--text);}
+.filter-btn.active{background:var(--accent-2);border-color:var(--accent-2);color:#171207;font-weight:600;}
+
+.portfolio-grid{
+  display:grid;grid-template-columns:1fr;gap:26px;
+}
+@media(min-width:640px){.portfolio-grid{grid-template-columns:1fr 1fr;}}
+@media(min-width:1100px){.portfolio-grid{grid-template-columns:repeat(3,1fr);}}
+.pf-card{
+  border:1px solid var(--border);background:var(--surface);cursor:pointer;
+  opacity:0;transform:translateY(16px);transition:opacity .35s ease, transform .35s ease, border-color .2s;
+  display:flex;flex-direction:column;
+}
+.pf-card.show{opacity:1;transform:translateY(0);}
+.pf-card.hide{display:none;}
+.pf-card:hover{border-color:var(--accent);}
+.pf-photo{aspect-ratio:4/3;position:relative;overflow:hidden;background:
+    repeating-linear-gradient(135deg, #232a31 0, #232a31 2px, #1a1f25 2px, #1a1f25 22px);
+}
+.pf-photo .ph-label{
+  position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  color:var(--text-dim);font-family:var(--mono);font-size:11.5px;text-transform:uppercase;letter-spacing:0.06em;text-align:center;padding:0 20px;
+}
+.pf-photo .ph-label svg{width:26px;height:26px;margin-bottom:8px;opacity:0.5;}
+.pf-cat-tag{
+  position:absolute;top:12px;left:12px;background:rgba(18,21,26,0.85);border:1px solid var(--accent-dim);
+  color:var(--accent);font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:0.05em;padding:5px 10px;
+}
+.pf-body{padding:22px;}
+.pf-body h3{font-size:20px;margin-bottom:8px;}
+.pf-body p{color:var(--text-muted);font-size:14px;text-transform:none;margin-bottom:16px;}
+.pf-loc{display:flex;align-items:center;gap:6px;font-family:var(--mono);font-size:11.5px;color:var(--text-dim);text-transform:uppercase;margin-bottom:14px;}
+.pf-loc svg{width:12px;height:12px;}
+.pf-link{font-family:var(--mono);font-size:12px;color:var(--accent);display:inline-flex;align-items:center;gap:6px;text-transform:uppercase;}
+.pf-link svg{width:13px;height:13px;}
+
+.portfolio-empty{text-align:center;padding:60px 20px;color:var(--text-dim);font-family:var(--mono);font-size:13px;text-transform:uppercase;letter-spacing:0.06em;}
+
+/* ============================================
+   BEFORE / AFTER
+   ============================================ */
+.ba-wrap{display:grid;gap:36px;}
+@media(min-width:900px){.ba-wrap{grid-template-columns:repeat(2,1fr);}}
+.ba-slider{position:relative;aspect-ratio:4/3;overflow:hidden;border:1px solid var(--border);user-select:none;}
+.ba-before,.ba-after{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;color:var(--text-dim);font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:0.06em;}
+.ba-before{background:repeating-linear-gradient(135deg,#1a1f25 0,#1a1f25 2px,#12151a 2px,#12151a 22px);}
+.ba-after{background:repeating-linear-gradient(135deg,#252c34 0,#252c34 2px,#1a2027 2px,#1a2027 22px);overflow:hidden;}
+.ba-after-inner{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;}
+.ba-tag{position:absolute;top:14px;font-family:var(--mono);font-size:11px;letter-spacing:0.1em;padding:5px 12px;border:1px solid var(--accent-dim);color:var(--accent);background:rgba(18,21,26,0.85);}
+.ba-tag.before{left:14px;}
+.ba-tag.after{right:14px;}
+.ba-handle{
+  position:absolute;top:0;bottom:0;width:2px;background:var(--accent-2);left:50%;
+  transform:translateX(-50%);cursor:ew-resize;z-index:5;
+}
+.ba-handle::after{
+  content:"";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:38px;height:38px;border-radius:50%;background:var(--accent-2);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%23171207' stroke-width='2'%3E%3Cpath d='M8 7l-5 5 5 5M16 7l5 5-5 5'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:center;
+}
+.ba-range{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0;}
+.ba-caption{margin-top:14px;}
+.ba-caption h4{font-family:var(--disp);font-size:18px;margin-bottom:4px;}
+.ba-caption p{color:var(--text-dim);font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:0.04em;}
+
+/* ============================================
+   HIGHLIGHTS
+   ============================================ */
+.highlights-grid{display:grid;grid-template-columns:1fr;gap:1px;background:var(--border);border:1px solid var(--border);}
+@media(min-width:640px){.highlights-grid{grid-template-columns:repeat(2,1fr);}}
+@media(min-width:1000px){.highlights-grid{grid-template-columns:repeat(4,1fr);}}
+.highlight-card{background:var(--bg);padding:32px 26px;}
+.highlight-num{font-family:var(--mono);font-size:12px;color:var(--accent-2);margin-bottom:20px;}
+.highlight-card h3{font-size:20px;margin-bottom:10px;}
+.highlight-card p{color:var(--text-muted);font-size:14px;text-transform:none;}
+
+/* ============================================
+   EXPERIENCE TIMELINE
+   ============================================ */
+.exp-list{border-top:1px solid var(--border);}
+.exp-item{
+  display:grid;grid-template-columns:1fr;gap:20px;padding:30px 0;border-bottom:1px solid var(--border);
+}
+@media(min-width:800px){.exp-item{grid-template-columns:120px 1fr 1fr;align-items:center;gap:32px;}}
+.exp-index{font-family:var(--mono);font-size:13px;color:var(--text-dim);}
+.exp-info h4{font-size:22px;margin-bottom:8px;text-transform:none;font-family:var(--disp);}
+.exp-info .exp-tag{font-family:var(--mono);font-size:11px;color:var(--accent);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:8px;display:block;}
+.exp-info p{color:var(--text-muted);font-size:14px;}
+.exp-photo{aspect-ratio:16/9;background:repeating-linear-gradient(135deg,#1e242b 0,#1e242b 2px,#181c22 2px,#181c22 22px);display:flex;align-items:center;justify-content:center;border:1px solid var(--border);}
+.exp-photo span{font-family:var(--mono);font-size:11px;color:var(--text-dim);text-transform:uppercase;}
+
+/* ============================================
+   AREA DE ATUACAO
+   ============================================ */
+.area-wrap{display:grid;gap:40px;}
+@media(min-width:900px){.area-wrap{grid-template-columns:1fr 1.1fr;align-items:center;}}
+.area-map{
+  aspect-ratio:1/1;border:1px solid var(--border);position:relative;
+  background:var(--surface);
+}
+.area-map svg{width:100%;height:100%;}
+.area-list li{
+  display:flex;justify-content:space-between;padding:16px 0;border-bottom:1px solid var(--border);
+  font-family:var(--mono);font-size:13px;text-transform:uppercase;letter-spacing:0.03em;
+}
+.area-list li span:first-child{color:var(--text-muted);}
+.area-list li span:last-child{color:var(--text-dim);}
+
+/* ============================================
+   CTA
+   ============================================ */
+.cta-section{
+  background:var(--bg-alt-2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+  padding:100px 0;text-align:center;
+}
+.cta-section h2{font-size:clamp(30px,5vw,52px);max-width:760px;margin:0 auto 18px;}
+.cta-section p{color:var(--text-muted);max-width:520px;margin:0 auto 40px;font-size:16px;}
+.cta-actions{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;}
+
+/* ============================================
+   CONTACT FORM
+   ============================================ */
+.contact-grid{display:grid;gap:56px;}
+@media(min-width:900px){.contact-grid{grid-template-columns:0.8fr 1.2fr;}}
+.contact-info li{
+  display:flex;gap:14px;padding:18px 0;border-bottom:1px solid var(--border);
+}
+.contact-info li svg{width:18px;height:18px;color:var(--accent);flex-shrink:0;margin-top:2px;}
+.contact-info .label{font-family:var(--mono);font-size:11px;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.05em;display:block;margin-bottom:4px;}
+.contact-info .value{color:var(--text-muted);font-size:14.5px;}
+
+.form-row{display:grid;grid-template-columns:1fr;gap:20px;margin-bottom:20px;}
+@media(min-width:600px){.form-row.two{grid-template-columns:1fr 1fr;}}
+.field label{display:block;font-family:var(--mono);font-size:11.5px;text-transform:uppercase;letter-spacing:0.05em;color:var(--text-muted);margin-bottom:8px;}
+.field input,.field select,.field textarea{
+  width:100%;background:var(--surface);border:1px solid var(--border);color:var(--text);
+  padding:13px 14px;font-size:14.5px;transition:border-color .2s;
+}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--accent);outline:none;}
+.field textarea{resize:vertical;min-height:120px;}
+.form-note{font-size:12.5px;color:var(--text-dim);margin-top:16px;font-family:var(--mono);}
+.form-success{
+  display:none;border:1px solid var(--accent);background:rgba(74,149,214,0.08);padding:22px;align-items:center;gap:14px;margin-top:20px;
+}
+.form-success.show{display:flex;}
+.form-success svg{width:22px;height:22px;color:var(--accent);flex-shrink:0;}
+.form-success strong{display:block;margin-bottom:2px;}
+.form-success span{color:var(--text-muted);font-size:14px;}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+footer{background:var(--bg-alt-2);border-top:1px solid var(--border);padding:80px 0 30px;}
+.footer-grid{display:grid;grid-template-columns:1fr;gap:44px;margin-bottom:60px;}
+@media(min-width:768px){.footer-grid{grid-template-columns:1.4fr 1fr 1fr 1fr;}}
+.footer-brand p{color:var(--text-dim);font-size:14px;margin:16px 0 20px;max-width:280px;}
+.footer-social{display:flex;gap:12px;}
+.footer-social a{width:34px;height:34px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;transition:border-color .2s;}
+.footer-social a:hover{border-color:var(--accent);color:var(--accent);}
+.footer-social svg{width:16px;height:16px;}
+.footer-col h5{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-dim);margin-bottom:20px;}
+.footer-col li{margin-bottom:12px;font-size:14px;color:var(--text-muted);}
+.footer-col a:hover{color:var(--accent);}
+.footer-bottom{
+  border-top:1px solid var(--border);padding-top:26px;display:flex;flex-wrap:wrap;gap:14px;
+  justify-content:space-between;font-family:var(--mono);font-size:12px;color:var(--text-dim);
+}
+
+/* ============================================
+   WHATSAPP FLOAT
+   ============================================ */
+.wa-float{
+  position:fixed;bottom:24px;right:24px;z-index:150;width:58px;height:58px;
+  background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  box-shadow:0 8px 22px rgba(0,0,0,0.4);transition:transform .2s;
+}
+.wa-float:hover{transform:scale(1.08);}
+.wa-float svg{width:28px;height:28px;color:#0b1a10;}
+
+/* ============================================
+   LIGHTBOX & PROJECT MODAL
+   ============================================ */
+.overlay{
+  position:fixed;inset:0;background:rgba(10,12,15,0.94);z-index:300;
+  display:none;align-items:center;justify-content:center;padding:20px;
+}
+.overlay.open{display:flex;}
+.overlay-close{position:absolute;top:22px;right:22px;width:44px;height:44px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text);}
+.overlay-close:hover{border-color:var(--accent);}
+.overlay-close svg{width:18px;height:18px;}
+.lb-content{max-width:900px;width:100%;text-align:center;}
+.lb-image{aspect-ratio:4/3;background:repeating-linear-gradient(135deg,#232a31 0,#232a31 2px,#1a1f25 2px,#1a1f25 22px);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-direction:column;color:var(--text-dim);font-family:var(--mono);font-size:13px;text-transform:uppercase;}
+.lb-image svg{width:34px;height:34px;margin-bottom:10px;opacity:0.5;}
+.lb-nav{display:flex;justify-content:space-between;margin-top:18px;}
+.lb-nav button{font-family:var(--mono);font-size:12px;text-transform:uppercase;color:var(--text-muted);display:flex;align-items:center;gap:8px;}
+.lb-nav button:hover{color:var(--accent);}
+.lb-nav svg{width:15px;height:15px;}
+
+.pm-content{max-width:960px;width:100%;max-height:88vh;overflow-y:auto;background:var(--bg-alt);border:1px solid var(--border);}
+.pm-hero{aspect-ratio:16/9;background:repeating-linear-gradient(135deg,#232a31 0,#232a31 2px,#1a1f25 2px,#1a1f25 22px);display:flex;align-items:center;justify-content:center;color:var(--text-dim);font-family:var(--mono);font-size:13px;text-transform:uppercase;position:relative;}
+.pm-body{padding:40px;}
+.pm-cat{font-family:var(--mono);font-size:12px;color:var(--accent);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px;display:block;}
+.pm-body h3{font-size:32px;margin-bottom:18px;}
+.pm-body p.pm-desc{color:var(--text-muted);font-size:15.5px;margin-bottom:28px;text-transform:none;max-width:620px;}
+.pm-services h5,.pm-gallery h5{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-dim);margin-bottom:14px;}
+.pm-services ul{margin-bottom:32px;}
+.pm-services li{display:flex;gap:10px;align-items:flex-start;color:var(--text-muted);font-size:14px;padding:8px 0;border-bottom:1px solid var(--border-soft);}
+.pm-services svg{width:15px;height:15px;color:var(--accent-2);flex-shrink:0;margin-top:2px;}
+.pm-gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:32px;}
+.pm-gallery-grid div{aspect-ratio:1/1;background:repeating-linear-gradient(135deg,#1e242b 0,#1e242b 2px,#181c22 2px,#181c22 22px);display:flex;align-items:center;justify-content:center;color:var(--text-dim);cursor:pointer;}
+.pm-gallery-grid svg{width:18px;height:18px;opacity:0.5;}
+.pm-actions{display:flex;flex-wrap:wrap;gap:14px;}
+
+/* ============================================
+   REVEAL ANIMATION
+   ============================================ */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .6s ease, transform .6s ease;}
+.reveal.in{opacity:1;transform:translateY(0);}
+
+/* scrollbar for modal */
+.pm-content::-webkit-scrollbar{width:8px;}
+.pm-content::-webkit-scrollbar-thumb{background:var(--border);}
+
+.divider{height:1px;background:var(--border);width:100%;}
+</style>
+</head>
+<body>
+
+<!-- ============================================
+     HEADER
+     ============================================ -->
+<header class="site-header" id="siteHeader">
+  <div class="container">
+    <a href="#inicio" class="logo"><span class="logo-badge"><img src="assets/logo-dod-engenharia.png" alt="DOD Engenharia"></span><span class="logo-wordmark">DOD Engenharia</span></a>
+    <nav class="nav-desktop" aria-label="Navegação principal">
+      <a href="#inicio">Início</a>
+      <a href="#empresa">Empresa</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#portfolio">Portfólio</a>
+      <a href="#experiencia">Projetos</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <div class="nav-actions">
+      <a href="#contato" class="btn btn-primary" style="display:none" id="headerCta">Solicitar orçamento</a>
+      <button class="hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<nav class="mobile-nav" id="mobileNav" aria-label="Navegação móvel">
+  <a href="#inicio">Início</a>
+  <a href="#empresa">Empresa</a>
+  <a href="#servicos">Serviços</a>
+  <a href="#portfolio">Portfólio</a>
+  <a href="#experiencia">Projetos</a>
+  <a href="#contato">Contato</a>
+  <a href="#contato" class="btn btn-primary">Solicitar orçamento</a>
+</nav>
+
+<main>
+
+<!-- ============================================
+     HERO
+     ============================================ -->
+<section class="hero" id="inicio">
+  <div class="hero-media" role="img" aria-label="Foto real de um serviço executado pela empresa — adicionar posteriormente">
+    <div class="hero-media-label">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="11" r="2"/><path d="M21 16l-5-4-4 3-3-2-5 4"/></svg>
+      Adicionar foto real de serviço executado
+    </div>
+  </div>
+  <div class="container">
+    <p class="hero-tag">Manutenção · Serviços Civis · Industrial</p>
+    <h1>Soluções em manutenção, serviços prediais e industriais</h1>
+    <p class="lead">Experiência, qualidade e segurança para cuidar da manutenção e conservação do seu patrimônio.</p>
+    <div class="hero-actions">
+      <a href="#contato" class="btn btn-primary">
+        Solicitar orçamento
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a href="#servicos" class="btn btn-outline">Conheça nossos serviços</a>
+    </div>
+    <ul class="hero-indicators">
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14.7 6.3a3 3 0 11-4.4 4.4L4 17v3h3l6.3-6.3"/></svg>Manutenção Predial</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21l4-1 11-11-3-3L4 17l-1 4z"/></svg>Serviços Civis</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 20l6-13 3 6 3-4 4 11H4z"/></svg>Pintura</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="6" r="2"/><path d="M12 8v6M8 20l4-6 4 6M9 12h6"/></svg>Linha de Vida</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg>Energia Solar</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>Inspeções</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============================================
+     SOBRE / QUEM SOMOS
+     ============================================ -->
+<section class="section" id="empresa">
+  <span class="section-num">SEÇ. 01 / EMPRESA</span>
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-media reveal">
+        <div class="placeholder-label">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M17 21v-2a4 4 0 00-4-4H7a4 4 0 00-4 4v2"/><circle cx="10" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          Adicionar foto da equipe ou de um serviço realizado
+        </div>
+      </div>
+      <div class="about-copy reveal">
+        <p class="eyebrow">Quem somos</p>
+        <h2 style="font-size:clamp(28px,3.8vw,42px);margin-bottom:22px;">Uma equipe preparada para cuidar do seu patrimônio</h2>
+        <p>Somos uma equipe especializada na execução de serviços de manutenção, conservação e melhorias em estruturas prediais, civis e industriais. Atuamos com organização e responsabilidade em cada etapa do trabalho, do planejamento à entrega.</p>
+        <p>Nosso compromisso é com a qualidade da execução e com a segurança de quem trabalha e de quem convive com o espaço mantido — sejam condomínios, empresas ou ambientes industriais.</p>
+        <p>Estamos preparados para atender diferentes tipos de demanda, com experiência prática nas frentes de trabalho que oferecemos. <em style="color:var(--text-dim);font-style:normal;">[Espaço reservado para a história real da empresa, ano de fundação, fundador e trajetória.]</em></p>
+        <div class="about-stats">
+          <div><span class="k">Fundação</span><span class="v">[Adicionar ano]</span></div>
+          <div><span class="k">Atuação</span><span class="v">[Adicionar região]</span></div>
+          <div><span class="k">Especialidade</span><span class="v">Manutenção predial e industrial</span></div>
+          <div><span class="k">Compromisso</span><span class="v">Qualidade e segurança</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SERVIÇOS
+     ============================================ -->
+<section class="section section-alt blueprint" id="servicos">
+  <span class="section-num">SEÇ. 02 / SERVIÇOS</span>
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">O que fazemos</p>
+      <h2>Nossos serviços</h2>
+      <p>Um portfólio completo de soluções para manutenção, conservação e melhorias — do condomínio ao ambiente industrial.</p>
+    </div>
+    <div class="services-grid" id="servicesGrid"></div>
+  </div>
+</section>
+
+<!-- ============================================
+     PORTFOLIO
+     ============================================ -->
+<section class="section" id="portfolio">
+  <span class="section-num">SEÇ. 03 / PORTFÓLIO</span>
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">Nossos trabalhos</p>
+      <h2>Experiência que se vê nas fotos</h2>
+      <p>Trabalhos executados pela nossa equipe. Fotos reais de cada serviço serão adicionadas a esta galeria.</p>
+    </div>
+    <div class="filters reveal" id="filters"></div>
+    <div class="portfolio-grid" id="portfolioGrid"></div>
+    <p class="portfolio-empty" id="portfolioEmpty" style="display:none;">Nenhum trabalho cadastrado nesta categoria ainda.</p>
+  </div>
+</section>
+
+<!-- ============================================
+     ANTES E DEPOIS
+     ============================================ -->
+<section class="section section-alt" id="antes-depois">
+  <span class="section-num">SEÇ. 04 / TRANSFORMAÇÃO</span>
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">Antes e depois</p>
+      <h2>A transformação, lado a lado</h2>
+      <p>Arraste o controle para comparar o antes e o depois de cada serviço. Fotos reais serão inseridas aqui.</p>
+    </div>
+    <div class="ba-wrap" id="baWrap"></div>
+  </div>
+</section>
+
+<!-- ============================================
+     DESTAQUES
+     ============================================ -->
+<section class="section">
+  <span class="section-num">SEÇ. 05 / DIFERENCIAIS</span>
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">Por que trabalhar com a gente</p>
+      <h2>Destaques da empresa</h2>
+    </div>
+    <div class="highlights-grid reveal" id="highlightsGrid"></div>
+  </div>
+</section>
+
+<!-- ============================================
+     EXPERIÊNCIA / PROJETOS REALIZADOS
+     ============================================ -->
+<section class="section section-alt" id="experiencia">
+  <span class="section-num">SEÇ. 06 / EXPERIÊNCIA</span>
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">Experiência que você pode ver</p>
+      <h2>Projetos realizados</h2>
+      <p>Da avaliação inicial à entrega final — uma sequência real de trabalho em cada projeto.</p>
+    </div>
+    <div class="exp-list" id="expList"></div>
+  </div>
+</section>
+
+<!-- ============================================
+     ÁREA DE ATUAÇÃO
+     ============================================ -->
+<section class="section">
+  <span class="section-num">SEÇ. 07 / ATUAÇÃO</span>
+  <div class="container">
+    <div class="area-wrap">
+      <div class="reveal">
+        <p class="eyebrow">Onde atuamos</p>
+        <h2 style="font-size:clamp(28px,3.8vw,42px);margin-bottom:22px;">Área de atendimento</h2>
+        <ul class="area-list">
+          <li><span>Cidade</span><span>[Adicionar]</span></li>
+          <li><span>Estado</span><span>[Adicionar]</span></li>
+          <li><span>Região</span><span>[Adicionar]</span></li>
+          <li><span>Área de atendimento</span><span>[Adicionar]</span></li>
+        </ul>
+      </div>
+      <div class="area-map crosshair reveal">
+        <svg viewBox="0 0 300 300" fill="none">
+          <defs><pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="#2c343d" stroke-width="1"/></pattern></defs>
+          <rect width="300" height="300" fill="url(#grid)"/>
+          <circle cx="150" cy="150" r="5" fill="#f0a63d"/>
+          <circle cx="150" cy="150" r="34" stroke="#4a95d6" stroke-width="1" opacity="0.6"/>
+          <circle cx="150" cy="150" r="70" stroke="#4a95d6" stroke-width="1" opacity="0.35"/>
+          <circle cx="150" cy="150" r="110" stroke="#4a95d6" stroke-width="1" opacity="0.18"/>
+          <text x="150" y="200" text-anchor="middle" fill="#69737e" font-family="IBM Plex Mono" font-size="10">MAPA A DEFINIR</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Seção "Clientes e parceiros" fica pronta para ser reativada quando houver
+     logos autorizados para divulgação — ver bloco comentado no fim do <body>. -->
+
+<!-- ============================================
+     CTA
+     ============================================ -->
+<section class="cta-section">
+  <div class="container">
+    <p class="eyebrow" style="justify-content:center;">Fale com a gente</p>
+    <h2>Precisa de uma equipe para o seu próximo serviço?</h2>
+    <p>Entre em contato conosco, apresente sua necessidade e solicite uma avaliação para o seu projeto.</p>
+    <div class="cta-actions">
+      <a href="#contato" class="btn btn-primary">Solicitar orçamento</a>
+      <a href="#" class="btn btn-outline" id="ctaWhatsapp">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.39 1.26 4.81L2 22l5.42-1.34a9.9 9.9 0 004.62 1.13c5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm5.8 14.1c-.24.68-1.38 1.31-1.9 1.36-.5.06-1 .27-3.35-.7-2.83-1.16-4.62-4.06-4.76-4.25-.14-.19-1.14-1.52-1.14-2.9 0-1.37.72-2.05.97-2.33.25-.28.55-.35.73-.35h.53c.17 0 .4-.03.6.47.24.6.82 2.06.9 2.2.07.15.12.32.02.51-.1.19-.15.31-.3.48-.14.16-.31.36-.44.49-.15.14-.3.3-.13.6.17.3.75 1.25 1.62 2.02 1.11.99 2.05 1.3 2.35 1.44.3.15.47.13.65-.07.17-.19.73-.85.93-1.14.2-.29.4-.24.65-.14.26.1 1.65.78 1.94.93.28.14.47.21.54.33.07.12.07.7-.17 1.38z"/></svg>
+        Falar pelo WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     CONTATO
+     ============================================ -->
+<section class="section" id="contato">
+  <span class="section-num">SEÇ. 08 / CONTATO</span>
+  <div class="container">
+    <div class="contact-grid">
+      <div class="reveal">
+        <p class="eyebrow">Contato</p>
+        <h2 style="font-size:clamp(28px,3.8vw,40px);margin-bottom:24px;">Solicite um orçamento</h2>
+        <p style="color:var(--text-muted);margin-bottom:32px;">Preencha o formulário ou fale diretamente pelos canais abaixo. Retornamos com uma avaliação do seu projeto.</p>
+        <ul class="contact-info">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.12.9.32 1.79.6 2.65a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.43-1.27a2 2 0 012.11-.45c.86.28 1.75.48 2.65.6A2 2 0 0122 16.92z"/></svg>
+            <div><span class="label">Telefone / WhatsApp</span><span class="value">[Adicionar telefone]</span></div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
+            <div><span class="label">E-mail</span><span class="value">[Adicionar e-mail]</span></div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <div><span class="label">Endereço</span><span class="value">[Adicionar endereço]</span></div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="9" width="20" height="12" rx="1"/><path d="M17 9V6a5 5 0 00-10 0v3"/></svg>
+            <div><span class="label">Horário de atendimento</span><span class="value">[Adicionar horário]</span></div>
+          </li>
+        </ul>
+      </div>
+
+      <form class="reveal" id="contactForm" novalidate>
+        <div class="form-row two">
+          <div class="field"><label for="fName">Nome</label><input type="text" id="fName" name="nome" required></div>
+          <div class="field"><label for="fCompany">Empresa</label><input type="text" id="fCompany" name="empresa"></div>
+        </div>
+        <div class="form-row two">
+          <div class="field"><label for="fPhone">Telefone / WhatsApp</label><input type="tel" id="fPhone" name="telefone" required></div>
+          <div class="field"><label for="fEmail">E-mail</label><input type="email" id="fEmail" name="email" required></div>
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label for="fService">Tipo de serviço</label>
+            <select id="fService" name="tipo_servico" required>
+              <option value="">Selecione</option>
+              <option>Manutenção Predial</option>
+              <option>Pintura</option>
+              <option>Limpeza de Placas Solares</option>
+              <option>Instalação de Linha de Vida</option>
+              <option>Serviços Civis</option>
+              <option>Inspeções</option>
+              <option>Serviços Industriais</option>
+              <option>Outro</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="field"><label for="fMsg">Mensagem</label><textarea id="fMsg" name="mensagem" required placeholder="Conte um pouco sobre o serviço que você precisa..."></textarea></div>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">Solicitar orçamento</button>
+        <p class="form-note">Ao enviar, você concorda em ser contatado pela nossa equipe para tratar da sua solicitação.</p>
+        <div class="form-success" id="formSuccess">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+          <div><strong>Solicitação enviada!</strong><span>Obrigado pelo contato — nossa equipe vai retornar em breve.</span></div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================================
+     FOOTER
+     ============================================ -->
+<footer id="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#inicio" class="logo"><span class="logo-badge"><img src="assets/logo-dod-engenharia.png" alt="DOD Engenharia"></span><span>DOD Engenharia</span></a>
+        <p>Manutenção predial, serviços civis e industriais executados com experiência, qualidade e segurança.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          <a href="#" id="footerWhatsapp" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.39 1.26 4.81L2 22l5.42-1.34a9.9 9.9 0 004.62 1.13c5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Serviços</h5>
+        <ul>
+          <li><a href="#servicos">Manutenção Predial</a></li>
+          <li><a href="#servicos">Pintura</a></li>
+          <li><a href="#servicos">Serviços Civis</a></li>
+          <li><a href="#servicos">Linha de Vida</a></li>
+          <li><a href="#servicos">Serviços Industriais</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Site</h5>
+        <ul>
+          <li><a href="#empresa">Empresa</a></li>
+          <li><a href="#portfolio">Portfólio</a></li>
+          <li><a href="#experiencia">Projetos</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Contato</h5>
+        <ul>
+          <li>[Adicionar telefone]</li>
+          <li>[Adicionar e-mail]</li>
+          <li>[Adicionar endereço]</li>
+          <li>CNPJ: [Adicionar, se desejado]</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> DOD Engenharia. Todos os direitos reservados.</span>
+      <span>Manutenção Predial · Serviços Civis · Industrial</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================
+     WHATSAPP FLOAT
+     ============================================ -->
+<a href="#" class="wa-float" id="waFloat" aria-label="Falar pelo WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.39 1.26 4.81L2 22l5.42-1.34a9.9 9.9 0 004.62 1.13c5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm5.8 14.1c-.24.68-1.38 1.31-1.9 1.36-.5.06-1 .27-3.35-.7-2.83-1.16-4.62-4.06-4.76-4.25-.14-.19-1.14-1.52-1.14-2.9 0-1.37.72-2.05.97-2.33.25-.28.55-.35.73-.35h.53c.17 0 .4-.03.6.47.24.6.82 2.06.9 2.2.07.15.12.32.02.51-.1.19-.15.31-.3.48-.14.16-.31.36-.44.49-.15.14-.3.3-.13.6.17.3.75 1.25 1.62 2.02 1.11.99 2.05 1.3 2.35 1.44.3.15.47.13.65-.07.17-.19.73-.85.93-1.14.2-.29.4-.24.65-.14.26.1 1.65.78 1.94.93.28.14.47.21.54.33.07.12.07.7-.17 1.38z"/></svg>
+</a>
+
+<!-- ============================================
+     LIGHTBOX
+     ============================================ -->
+<div class="overlay" id="lightbox" role="dialog" aria-modal="true" aria-label="Visualização de foto">
+  <button class="overlay-close" id="lightboxClose" aria-label="Fechar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+  <div class="lb-content">
+    <div class="lb-image" id="lbImage">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="11" r="2"/><path d="M21 16l-5-4-4 3-3-2-5 4"/></svg>
+      <span id="lbLabel">Adicionar foto do serviço</span>
+    </div>
+    <div class="lb-nav">
+      <button id="lbPrev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg> Foto anterior</button>
+      <span id="lbCounter" style="font-family:var(--mono);font-size:12px;color:var(--text-dim);"></span>
+      <button id="lbNext">Próxima foto <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></button>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================
+     PROJECT MODAL (página individual do projeto)
+     ============================================ -->
+<div class="overlay" id="projectModal" role="dialog" aria-modal="true" aria-label="Detalhes do projeto">
+  <button class="overlay-close" id="projectClose" aria-label="Fechar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+  <div class="pm-content">
+    <div class="pm-hero" id="pmHero">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" width="30" height="30"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="11" r="2"/><path d="M21 16l-5-4-4 3-3-2-5 4"/></svg>
+    </div>
+    <div class="pm-body">
+      <span class="pm-cat" id="pmCat"></span>
+      <h3 id="pmTitle"></h3>
+      <p class="pm-desc" id="pmDesc"></p>
+      <div class="pm-services">
+        <h5>Serviços executados</h5>
+        <ul id="pmServices"></ul>
+      </div>
+      <div class="pm-gallery">
+        <h5>Galeria de fotos</h5>
+        <div class="pm-gallery-grid" id="pmGallery"></div>
+      </div>
+      <div class="pm-actions">
+        <a href="#contato" class="btn btn-primary" id="pmCtaBtn">Solicitar orçamento para um serviço semelhante</a>
+        <button class="btn btn-outline" id="pmCloseBtn">Fechar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--
+  ============================================================
+  SEÇÃO "CLIENTES E PARCEIROS" — pronta para ativar
+  Regra do briefing: só exibir se houver logos autorizados
+  para divulgação. Descomente e adicione os logos reais
+  para reativar esta seção entre "Área de atuação" e "CTA".
+  ============================================================
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">Confiança</p>
+        <h2>Clientes e parceiros</h2>
+      </div>
+      <div class="clients-grid">
+        <!-- logos reais entram aqui -->
+      </div>
+    </div>
+  </section>
+-->
+
+<script>
+/* ============================================================
+   CONFIGURAÇÃO DO SITE
+   Estrutura pensada para futura conexão com banco de dados /
+   painel administrativo. Basta editar os arrays abaixo — ou,
+   no futuro, alimentá-los a partir de uma API — para que todo
+   o layout (cards, filtros, galeria, lightbox, modal) se
+   atualize automaticamente, sem tocar no HTML/CSS.
+   ============================================================ */
+
+const SITE_CONFIG = {
+  whatsappNumber: "5500000000000", // formato internacional, sem espaços — configurar depois
+  whatsappMessage: "Olá! Gostaria de solicitar um orçamento."
+};
+
+// Ícones reutilizados (SVG como string)
+const ICONS = {
+  wrench: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14.7 6.3a3 3 0 11-4.4 4.4L4 17v3h3l6.3-6.3"/></svg>',
+  roller: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 20l6-13 3 6 3-4 4 11H4z"/></svg>',
+  sun: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg>',
+  harness: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="6" r="2"/><path d="M12 8v6M8 20l4-6 4 6M9 12h6"/></svg>',
+  civil: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6"/></svg>',
+  search: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>',
+  factory: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21V10l5 3V10l5 3V10l6 4v7z"/><path d="M3 21h18"/></svg>',
+  plus: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 5v14M5 12h14"/></svg>',
+  arrow: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>',
+  photo: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="11" r="2"/><path d="M21 16l-5-4-4 3-3-2-5 4"/></svg>',
+  pin: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>',
+  check: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>'
+};
+
+// Serviços oferecidos
+const SERVICES = [
+  { icon:"wrench", title:"Manutenção Predial", desc:"Manutenção, conservação, reparos e melhorias em estruturas prediais e condomínios.", filter:"manutencao-predial" },
+  { icon:"roller", title:"Pintura", desc:"Serviços de pintura, preparação e recuperação de superfícies internas e externas.", filter:"pintura" },
+  { icon:"sun", title:"Limpeza de Placas Solares", desc:"Limpeza e conservação de sistemas de geração de energia solar.", filter:"solar" },
+  { icon:"harness", title:"Instalação de Linha de Vida", desc:"Instalação de sistemas destinados à segurança em trabalhos em altura, seguindo as normas e requisitos técnicos aplicáveis.", filter:"linha-vida" },
+  { icon:"civil", title:"Serviços Civis", desc:"Execução de reparos, recuperação, manutenção e outros serviços relacionados à construção civil.", filter:"servicos-civis" },
+  { icon:"search", title:"Inspeções", desc:"Serviços de inspeção e avaliação visual relacionados à conservação, pintura e manutenção.", filter:"inspecoes" },
+  { icon:"factory", title:"Serviços Industriais", desc:"Serviços voltados ao ambiente industrial. Categoria em expansão.", filter:"industrial" },
+  { icon:"plus", title:"Outros Serviços", desc:"Categoria flexível, pronta para novos serviços que a empresa venha a oferecer.", filter:"todos" }
+];
+
+// Categorias de filtro do portfólio (na ordem definida no briefing)
+const FILTERS = [
+  { key:"todos", label:"Todos" },
+  { key:"pintura", label:"Pintura" },
+  { key:"manutencao-predial", label:"Manutenção Predial" },
+  { key:"solar", label:"Solar" },
+  { key:"linha-vida", label:"Linha de Vida" },
+  { key:"servicos-civis", label:"Serviços Civis" },
+  { key:"inspecoes", label:"Inspeções" },
+  { key:"industrial", label:"Industrial" }
+];
+
+/* PROJETOS — dados de exemplo/placeholder.
+   Para cadastrar um novo projeto real, basta adicionar um novo
+   objeto neste array (id, título, categoria, descrição, local,
+   serviços executados e número de fotos da galeria). Nenhuma
+   alteração de layout é necessária. Quando houver fotos reais,
+   adicione um campo "image" com o caminho do arquivo — o card
+   passará a exibir a foto automaticamente no lugar do placeholder. */
+const PROJECTS = [
+  { id:"pintura-predial-01", title:"Pintura Predial", category:"pintura", categoryLabel:"Pintura", desc:"Execução de serviço de preparação e pintura de área externa.", location:null, services:["Preparação de superfície","Aplicação de pintura","Acabamento e limpeza"], gallery:4 },
+  { id:"manutencao-predial-01", title:"Manutenção Predial", category:"manutencao-predial", categoryLabel:"Manutenção Predial", desc:"Manutenção e reparos em estrutura predial, com foco em conservação e segurança.", location:null, services:["Vistoria inicial","Reparo estrutural","Conservação preventiva"], gallery:5 },
+  { id:"solar-01", title:"Limpeza de Placas Solares", category:"solar", categoryLabel:"Solar", desc:"Limpeza e conservação de sistema de geração de energia solar.", location:null, services:["Inspeção do sistema","Limpeza das placas","Checagem de rendimento"], gallery:3 },
+  { id:"linha-vida-01", title:"Instalação de Linha de Vida", category:"linha-vida", categoryLabel:"Linha de Vida", desc:"Instalação de sistema de segurança para trabalho em altura, conforme normas técnicas aplicáveis.", location:null, services:["Avaliação técnica","Instalação do sistema","Testes de segurança"], gallery:4 },
+  { id:"civil-01", title:"Serviços Civis", category:"servicos-civis", categoryLabel:"Serviços Civis", desc:"Execução de reparo e recuperação relacionados à construção civil.", location:null, services:["Diagnóstico","Execução do reparo","Acabamento"], gallery:5 },
+  { id:"inspecao-01", title:"Inspeção Predial", category:"inspecoes", categoryLabel:"Inspeções", desc:"Inspeção e avaliação visual relacionada à conservação e manutenção.", location:null, services:["Vistoria técnica","Registro fotográfico","Relatório de avaliação"], gallery:3 },
+  { id:"industrial-01", title:"Manutenção Industrial", category:"industrial", categoryLabel:"Industrial", desc:"Serviço de manutenção voltado ao ambiente industrial.", location:null, services:["Avaliação do ambiente","Execução do serviço","Checagem final"], gallery:4 }
+];
+
+// Antes / Depois — pronto para receber pares de fotos reais
+const BEFORE_AFTER = [
+  { title:"Pintura de fachada", category:"Pintura" },
+  { title:"Recuperação de estrutura", category:"Manutenção Predial" }
+];
+
+// Destaques da empresa
+const HIGHLIGHTS = [
+  { title:"Segurança", desc:"Execução seguindo procedimentos e requisitos de segurança aplicáveis." },
+  { title:"Qualidade", desc:"Compromisso com a qualidade da execução em cada etapa do serviço." },
+  { title:"Experiência", desc:"Experiência prática em diferentes tipos de serviços prediais, civis e industriais." },
+  { title:"Compromisso", desc:"Foco em organização, prazo e satisfação do cliente." }
+];
+
+// Experiência / projetos realizados (sequência)
+const EXPERIENCE = [
+  { tag:"Projeto", title:"Manutenção predial em condomínio", desc:"Serviço realizado com foco em conservação e reparo de estrutura." },
+  { tag:"Projeto", title:"Pintura de área externa", desc:"Preparação de superfície e aplicação de pintura." },
+  { tag:"Projeto", title:"Instalação de linha de vida", desc:"Sistema de segurança instalado para trabalho em altura." }
+];
+
+/* ============================================================
+   RENDERIZAÇÃO
+   ============================================================ */
+
+function placeholderPhoto(){
+  return `<div class="ph-label">${ICONS.photo}Adicionar foto do serviço</div>`;
+}
+
+function renderServices(){
+  const grid = document.getElementById("servicesGrid");
+  grid.innerHTML = SERVICES.map(s => `
+    <div class="service-card reveal">
+      <div class="service-icon">${ICONS[s.icon]}</div>
+      <h3>${s.title}</h3>
+      <p>${s.desc}</p>
+      <a href="#portfolio" class="btn-ghost" data-goto-filter="${s.filter}">Ver trabalhos realizados ${ICONS.arrow}</a>
+    </div>
+  `).join("");
+}
+
+function renderFilters(){
+  const wrap = document.getElementById("filters");
+  wrap.innerHTML = FILTERS.map((f,i) => `<button class="filter-btn ${i===0?'active':''}" data-filter="${f.key}">${f.label}</button>`).join("");
+}
+
+function renderPortfolio(){
+  const grid = document.getElementById("portfolioGrid");
+  grid.innerHTML = PROJECTS.map((p, i) => `
+    <article class="pf-card show" data-category="${p.category}" data-index="${i}">
+      <div class="pf-photo">
+        <span class="pf-cat-tag">${p.categoryLabel}</span>
+        ${placeholderPhoto()}
+      </div>
+      <div class="pf-body">
+        <h3>${p.title}</h3>
+        <p>${p.desc}</p>
+        ${p.location ? `<div class="pf-loc">${ICONS.pin}${p.location}</div>` : ""}
+        <span class="pf-link">Ver projeto ${ICONS.arrow}</span>
+      </div>
+    </article>
+  `).join("");
+}
+
+function renderBeforeAfter(){
+  const wrap = document.getElementById("baWrap");
+  wrap.innerHTML = BEFORE_AFTER.map((b,i) => `
+    <div class="reveal">
+      <div class="ba-slider" data-ba="${i}">
+        <div class="ba-before">
+          <span>${ICONS.photo}</span>
+          Adicionar foto — antes
+        </div>
+        <div class="ba-after" style="clip-path:inset(0 0 0 50%);">
+          <div class="ba-after-inner">
+            ${ICONS.photo}
+            Adicionar foto — depois
+          </div>
+        </div>
+        <span class="ba-tag before">Antes</span>
+        <span class="ba-tag after">Depois</span>
+        <div class="ba-handle" style="left:50%;"></div>
+        <input type="range" class="ba-range" min="0" max="100" value="50" aria-label="Comparar antes e depois">
+      </div>
+      <div class="ba-caption">
+        <h4>${b.title}</h4>
+        <p>${b.category}</p>
+      </div>
+    </div>
+  `).join("");
+
+  document.querySelectorAll(".ba-slider").forEach(slider => {
+    const range = slider.querySelector(".ba-range");
+    const after = slider.querySelector(".ba-after");
+    const handle = slider.querySelector(".ba-handle");
+    range.addEventListener("input", () => {
+      const v = range.value;
+      after.style.clipPath = `inset(0 0 0 ${v}%)`;
+      handle.style.left = v + "%";
+    });
+  });
+}
+
+function renderHighlights(){
+  const grid = document.getElementById("highlightsGrid");
+  grid.innerHTML = HIGHLIGHTS.map((h,i) => `
+    <div class="highlight-card">
+      <div class="highlight-num">0${i+1}</div>
+      <h3>${h.title}</h3>
+      <p>${h.desc}</p>
+    </div>
+  `).join("");
+}
+
+function renderExperience(){
+  const list = document.getElementById("expList");
+  list.innerHTML = EXPERIENCE.map((e,i) => `
+    <div class="exp-item reveal">
+      <div class="exp-index">0${i+1} /</div>
+      <div class="exp-info">
+        <span class="exp-tag">${e.tag}</span>
+        <h4>${e.title}</h4>
+        <p>${e.desc}</p>
+      </div>
+      <div class="exp-photo"><span>${ICONS.photo} Adicionar foto do resultado</span></div>
+    </div>
+  `).join("");
+}
+
+renderServices();
+renderFilters();
+renderPortfolio();
+renderBeforeAfter();
+renderHighlights();
+renderExperience();
+document.getElementById("year").textContent = new Date().getFullYear();
+
+/* ============================================================
+   WHATSAPP
+   ============================================================ */
+function waLink(){
+  return `https://wa.me/${SITE_CONFIG.whatsappNumber}?text=${encodeURIComponent(SITE_CONFIG.whatsappMessage)}`;
+}
+["waFloat","ctaWhatsapp","footerWhatsapp"].forEach(id => {
+  const el = document.getElementById(id);
+  if(el){ el.href = waLink(); el.target = "_blank"; el.rel = "noopener"; }
+});
+
+/* ============================================================
+   HEADER / MOBILE NAV
+   ============================================================ */
+const header = document.getElementById("siteHeader");
+window.addEventListener("scroll", () => {
+  header.classList.toggle("scrolled", window.scrollY > 40);
+  document.getElementById("headerCta").style.display = window.scrollY > 300 ? "inline-flex" : "none";
+});
+
+const hamburger = document.getElementById("hamburger");
+const mobileNav = document.getElementById("mobileNav");
+hamburger.addEventListener("click", () => {
+  const open = mobileNav.classList.toggle("open");
+  hamburger.classList.toggle("open", open);
+  hamburger.setAttribute("aria-expanded", open);
+  document.body.style.overflow = open ? "hidden" : "";
+});
+mobileNav.querySelectorAll("a").forEach(a => a.addEventListener("click", () => {
+  mobileNav.classList.remove("open");
+  hamburger.classList.remove("open");
+  document.body.style.overflow = "";
+}));
+
+/* ============================================================
+   PORTFOLIO FILTERS
+   ============================================================ */
+const filterButtons = document.querySelectorAll(".filter-btn");
+const pfCards = () => document.querySelectorAll(".pf-card");
+
+function applyFilter(key){
+  filterButtons.forEach(b => b.classList.toggle("active", b.dataset.filter === key));
+  let visibleCount = 0;
+  pfCards().forEach(card => {
+    const match = key === "todos" || card.dataset.category === key;
+    card.classList.toggle("hide", !match);
+    card.classList.toggle("show", match);
+    if(match) visibleCount++;
+  });
+  document.getElementById("portfolioEmpty").style.display = visibleCount === 0 ? "block" : "none";
+}
+filterButtons.forEach(btn => btn.addEventListener("click", () => applyFilter(btn.dataset.filter)));
+
+// "Ver trabalhos realizados" nos cards de serviço leva ao filtro correspondente
+document.getElementById("servicesGrid").addEventListener("click", e => {
+  const link = e.target.closest("[data-goto-filter]");
+  if(!link) return;
+  const key = link.dataset.gotoFilter;
+  setTimeout(() => applyFilter(key), 350);
+});
+
+/* ============================================================
+   LIGHTBOX
+   ============================================================ */
+const lightbox = document.getElementById("lightbox");
+const lbCounter = document.getElementById("lbCounter");
+let lbTotal = 1, lbIndex = 0;
+
+function openLightbox(total){
+  lbTotal = total || 1; lbIndex = 0;
+  updateLightbox();
+  lightbox.classList.add("open");
+  document.body.style.overflow = "hidden";
+}
+function updateLightbox(){
+  lbCounter.textContent = `${lbIndex+1} / ${lbTotal}`;
+}
+function closeLightbox(){
+  lightbox.classList.remove("open");
+  document.body.style.overflow = "";
+}
+document.getElementById("lightboxClose").addEventListener("click", closeLightbox);
+document.getElementById("lbNext").addEventListener("click", () => { lbIndex = (lbIndex+1) % lbTotal; updateLightbox(); });
+document.getElementById("lbPrev").addEventListener("click", () => { lbIndex = (lbIndex-1+lbTotal) % lbTotal; updateLightbox(); });
+lightbox.addEventListener("click", e => { if(e.target === lightbox) closeLightbox(); });
+
+/* ============================================================
+   PROJECT MODAL (página individual do projeto)
+   ============================================================ */
+const projectModal = document.getElementById("projectModal");
+
+function openProject(project){
+  document.getElementById("pmCat").textContent = project.categoryLabel;
+  document.getElementById("pmTitle").textContent = project.title;
+  document.getElementById("pmDesc").textContent = project.desc;
+  document.getElementById("pmServices").innerHTML = project.services.map(s => `<li>${ICONS.check}${s}</li>`).join("");
+  document.getElementById("pmGallery").innerHTML = Array.from({length: project.gallery}).map((_,i) =>
+    `<div data-gallery-index="${i}">${ICONS.photo}</div>`
+  ).join("");
+  projectModal.classList.add("open");
+  document.body.style.overflow = "hidden";
+  history.pushState({project: project.id}, "", "#projeto/" + project.id);
+}
+function closeProject(){
+  projectModal.classList.remove("open");
+  document.body.style.overflow = "";
+  if(location.hash.startsWith("#projeto/")) history.pushState({}, "", "#portfolio");
+}
+document.getElementById("projectClose").addEventListener("click", closeProject);
+document.getElementById("pmCloseBtn").addEventListener("click", closeProject);
+projectModal.addEventListener("click", e => { if(e.target === projectModal) closeProject(); });
+
+document.getElementById("portfolioGrid").addEventListener("click", e => {
+  const card = e.target.closest(".pf-card");
+  if(!card) return;
+  const project = PROJECTS[card.dataset.index];
+  openProject(project);
+});
+document.getElementById("pmGallery").addEventListener("click", e => {
+  const item = e.target.closest("[data-gallery-index]");
+  if(!item) return;
+  openLightbox(document.querySelectorAll("#pmGallery > div").length);
+});
+
+// abrir projeto direto por hash (compartilhamento de link)
+function checkHashRoute(){
+  const match = location.hash.match(/^#projeto\/(.+)$/);
+  if(match){
+    const project = PROJECTS.find(p => p.id === match[1]);
+    if(project) openProject(project);
+  }
+}
+window.addEventListener("hashchange", checkHashRoute);
+window.addEventListener("DOMContentLoaded", checkHashRoute);
+
+// tecla ESC fecha overlays
+document.addEventListener("keydown", e => {
+  if(e.key === "Escape"){ closeLightbox(); closeProject(); }
+});
+
+/* ============================================================
+   FORMULÁRIO DE CONTATO
+   ============================================================ */
+document.getElementById("contactForm").addEventListener("submit", function(e){
+  e.preventDefault();
+  // Integração com backend/e-mail/CRM deve ser conectada aqui.
+  document.getElementById("formSuccess").classList.add("show");
+  this.reset();
+  document.getElementById("formSuccess").scrollIntoView({behavior:"smooth", block:"center"});
+});
+
+/* ============================================================
+   SCROLL REVEAL
+   ============================================================ */
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add("in");
+      io.unobserve(entry.target);
+    }
+  });
+}, {threshold:0.12});
+
+function observeReveals(){
+  document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+}
+observeReveals();
+</script>
+
+</body>
+</html>
