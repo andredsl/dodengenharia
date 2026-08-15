@@ -287,6 +287,8 @@ h1,h2,h3,h4{font-family:var(--disp);font-weight:700;letter-spacing:0.01em;line-h
   color:var(--text-dim);font-family:var(--mono);font-size:11.5px;text-transform:uppercase;letter-spacing:0.06em;text-align:center;padding:0 20px;
 }
 .pf-photo .ph-label svg{width:26px;height:26px;margin-bottom:8px;opacity:0.5;}
+.pf-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .4s ease;}
+.pf-card:hover .pf-photo img{transform:scale(1.05);}
 .pf-cat-tag{
   position:absolute;top:12px;left:12px;background:rgba(18,21,26,0.85);border:1px solid var(--accent-dim);
   color:var(--accent);font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:0.05em;padding:5px 10px;
@@ -311,6 +313,7 @@ h1,h2,h3,h4{font-family:var(--disp);font-weight:700;letter-spacing:0.01em;line-h
 .ba-before{background:repeating-linear-gradient(135deg,#1a1f25 0,#1a1f25 2px,#12151a 2px,#12151a 22px);}
 .ba-after{background:repeating-linear-gradient(135deg,#252c34 0,#252c34 2px,#1a2027 2px,#1a2027 22px);overflow:hidden;}
 .ba-after-inner{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;}
+.ba-before img,.ba-after img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
 .ba-tag{position:absolute;top:14px;font-family:var(--mono);font-size:11px;letter-spacing:0.1em;padding:5px 12px;border:1px solid var(--accent-dim);color:var(--accent);background:rgba(18,21,26,0.85);}
 .ba-tag.before{left:14px;}
 .ba-tag.after{right:14px;}
@@ -354,6 +357,8 @@ h1,h2,h3,h4{font-family:var(--disp);font-weight:700;letter-spacing:0.01em;line-h
 .exp-info p{color:var(--text-muted);font-size:14px;}
 .exp-photo{aspect-ratio:16/9;background:repeating-linear-gradient(135deg,#1e242b 0,#1e242b 2px,#181c22 2px,#181c22 22px);display:flex;align-items:center;justify-content:center;border:1px solid var(--border);}
 .exp-photo span{font-family:var(--mono);font-size:11px;color:var(--text-dim);text-transform:uppercase;}
+.exp-photo{position:relative;overflow:hidden;}
+.exp-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
 
 /* ============================================
    AREA DE ATUACAO
@@ -457,6 +462,8 @@ footer{background:var(--bg-alt-2);border-top:1px solid var(--border);padding:80p
 .lb-content{max-width:900px;width:100%;text-align:center;}
 .lb-image{aspect-ratio:4/3;background:repeating-linear-gradient(135deg,#232a31 0,#232a31 2px,#1a1f25 2px,#1a1f25 22px);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-direction:column;color:var(--text-dim);font-family:var(--mono);font-size:13px;text-transform:uppercase;}
 .lb-image svg{width:34px;height:34px;margin-bottom:10px;opacity:0.5;}
+.lb-image{position:relative;}
+.lb-image img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#000;}
 .lb-nav{display:flex;justify-content:space-between;margin-top:18px;}
 .lb-nav button{font-family:var(--mono);font-size:12px;text-transform:uppercase;color:var(--text-muted);display:flex;align-items:center;gap:8px;}
 .lb-nav button:hover{color:var(--accent);}
@@ -473,8 +480,11 @@ footer{background:var(--bg-alt-2);border-top:1px solid var(--border);padding:80p
 .pm-services li{display:flex;gap:10px;align-items:flex-start;color:var(--text-muted);font-size:14px;padding:8px 0;border-bottom:1px solid var(--border-soft);}
 .pm-services svg{width:15px;height:15px;color:var(--accent-2);flex-shrink:0;margin-top:2px;}
 .pm-gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:32px;}
-.pm-gallery-grid div{aspect-ratio:1/1;background:repeating-linear-gradient(135deg,#1e242b 0,#1e242b 2px,#181c22 2px,#181c22 22px);display:flex;align-items:center;justify-content:center;color:var(--text-dim);cursor:pointer;}
+.pm-gallery-grid div{aspect-ratio:1/1;background:repeating-linear-gradient(135deg,#1e242b 0,#1e242b 2px,#181c22 2px,#181c22 22px);display:flex;align-items:center;justify-content:center;color:var(--text-dim);cursor:pointer;position:relative;overflow:hidden;}
 .pm-gallery-grid svg{width:18px;height:18px;opacity:0.5;}
+.pm-gallery-grid img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+.pm-hero{overflow:hidden;}
+.pm-hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
 .pm-actions{display:flex;flex-wrap:wrap;gap:14px;}
 
 /* ============================================
@@ -630,7 +640,6 @@ footer{background:var(--bg-alt-2);border-top:1px solid var(--border);padding:80p
     <div class="section-head reveal">
       <p class="eyebrow">Antes e depois</p>
       <h2>A transformação, lado a lado</h2>
-      <p>Arraste o controle para comparar o antes e o depois de cada serviço. Fotos reais serão inseridas aqui.</p>
     </div>
     <div class="ba-wrap" id="baWrap"></div>
   </div>
@@ -915,6 +924,18 @@ footer{background:var(--bg-alt-2);border-top:1px solid var(--border);padding:80p
   </section>
 -->
 
+<!-- ============================================================
+     DADOS GERADOS AUTOMATICAMENTE A PARTIR DAS PASTAS DE FOTOS
+     (imagens/antes-depois, imagens/nossos-trabalhos,
+     imagens/projetos-realizados). Gerados por "node gerar-dados.js".
+     Não edite estes arquivos à mão — edite as pastas de fotos e
+     rode o script novamente. Veja COMO-USAR.md.
+     ============================================================ -->
+<script src="imagens/dados/antes-depois.js"></script>
+<script src="imagens/dados/nossos-trabalhos.js"></script>
+<script src="imagens/dados/filtros.js"></script>
+<script src="imagens/dados/projetos-realizados.js"></script>
+
 <script>
 /* ============================================================
    CONFIGURAÇÃO DO SITE
@@ -958,8 +979,10 @@ const SERVICES = [
   { icon:"plus", title:"Outros Serviços", desc:"Categoria flexível, pronta para novos serviços que a empresa venha a oferecer.", filter:"todos" }
 ];
 
-// Categorias de filtro do portfólio (na ordem definida no briefing)
-const FILTERS = [
+// Categorias de filtro do portfólio — geradas a partir das pastas em
+// imagens/nossos-trabalhos (veja imagens/dados/filtros.js). Se o
+// gerador ainda não rodou, usa esta lista padrão como reserva.
+const FILTERS = (window.FILTERS_DATA && window.FILTERS_DATA.length) ? window.FILTERS_DATA : [
   { key:"todos", label:"Todos" },
   { key:"pintura", label:"Pintura" },
   { key:"manutencao-predial", label:"Manutenção Predial" },
@@ -970,27 +993,28 @@ const FILTERS = [
   { key:"industrial", label:"Industrial" }
 ];
 
-/* PROJETOS — dados de exemplo/placeholder.
-   Para cadastrar um novo projeto real, basta adicionar um novo
-   objeto neste array (id, título, categoria, descrição, local,
-   serviços executados e número de fotos da galeria). Nenhuma
-   alteração de layout é necessária. Quando houver fotos reais,
-   adicione um campo "image" com o caminho do arquivo — o card
-   passará a exibir a foto automaticamente no lugar do placeholder. */
-const PROJECTS = [
-  { id:"pintura-predial-01", title:"Pintura Predial", category:"pintura", categoryLabel:"Pintura", desc:"Execução de serviço de preparação e pintura de área externa.", location:null, services:["Preparação de superfície","Aplicação de pintura","Acabamento e limpeza"], gallery:4 },
-  { id:"manutencao-predial-01", title:"Manutenção Predial", category:"manutencao-predial", categoryLabel:"Manutenção Predial", desc:"Manutenção e reparos em estrutura predial, com foco em conservação e segurança.", location:null, services:["Vistoria inicial","Reparo estrutural","Conservação preventiva"], gallery:5 },
-  { id:"solar-01", title:"Limpeza de Placas Solares", category:"solar", categoryLabel:"Solar", desc:"Limpeza e conservação de sistema de geração de energia solar.", location:null, services:["Inspeção do sistema","Limpeza das placas","Checagem de rendimento"], gallery:3 },
-  { id:"linha-vida-01", title:"Instalação de Linha de Vida", category:"linha-vida", categoryLabel:"Linha de Vida", desc:"Instalação de sistema de segurança para trabalho em altura, conforme normas técnicas aplicáveis.", location:null, services:["Avaliação técnica","Instalação do sistema","Testes de segurança"], gallery:4 },
-  { id:"civil-01", title:"Serviços Civis", category:"servicos-civis", categoryLabel:"Serviços Civis", desc:"Execução de reparo e recuperação relacionados à construção civil.", location:null, services:["Diagnóstico","Execução do reparo","Acabamento"], gallery:5 },
-  { id:"inspecao-01", title:"Inspeção Predial", category:"inspecoes", categoryLabel:"Inspeções", desc:"Inspeção e avaliação visual relacionada à conservação e manutenção.", location:null, services:["Vistoria técnica","Registro fotográfico","Relatório de avaliação"], gallery:3 },
-  { id:"industrial-01", title:"Manutenção Industrial", category:"industrial", categoryLabel:"Industrial", desc:"Serviço de manutenção voltado ao ambiente industrial.", location:null, services:["Avaliação do ambiente","Execução do serviço","Checagem final"], gallery:4 }
+/* PROJETOS — o site se alimenta automaticamente das pastas em
+   imagens/nossos-trabalhos/<Categoria>/<Nome do Projeto>/.
+   Para cadastrar um novo projeto real: crie a pasta, coloque as
+   fotos dentro e rode "node gerar-dados.js". Nenhuma alteração de
+   HTML/CSS é necessária. A lista abaixo só é usada como exemplo
+   caso o gerador ainda não tenha sido executado. */
+const PROJECTS = (window.PROJECTS_DATA && window.PROJECTS_DATA.length) ? window.PROJECTS_DATA : [
+  { id:"pintura-predial-01", title:"Pintura Predial", category:"pintura", categoryLabel:"Pintura", desc:"Execução de serviço de preparação e pintura de área externa.", location:null, services:["Preparação de superfície","Aplicação de pintura","Acabamento e limpeza"], images:[] },
+  { id:"manutencao-predial-01", title:"Manutenção Predial", category:"manutencao-predial", categoryLabel:"Manutenção Predial", desc:"Manutenção e reparos em estrutura predial, com foco em conservação e segurança.", location:null, services:["Vistoria inicial","Reparo estrutural","Conservação preventiva"], images:[] },
+  { id:"solar-01", title:"Limpeza de Placas Solares", category:"solar", categoryLabel:"Solar", desc:"Limpeza e conservação de sistema de geração de energia solar.", location:null, services:["Inspeção do sistema","Limpeza das placas","Checagem de rendimento"], images:[] },
+  { id:"linha-vida-01", title:"Instalação de Linha de Vida", category:"linha-vida", categoryLabel:"Linha de Vida", desc:"Instalação de sistema de segurança para trabalho em altura, conforme normas técnicas aplicáveis.", location:null, services:["Avaliação técnica","Instalação do sistema","Testes de segurança"], images:[] },
+  { id:"civil-01", title:"Serviços Civis", category:"servicos-civis", categoryLabel:"Serviços Civis", desc:"Execução de reparo e recuperação relacionados à construção civil.", location:null, services:["Diagnóstico","Execução do reparo","Acabamento"], images:[] },
+  { id:"inspecao-01", title:"Inspeção Predial", category:"inspecoes", categoryLabel:"Inspeções", desc:"Inspeção e avaliação visual relacionada à conservação e manutenção.", location:null, services:["Vistoria técnica","Registro fotográfico","Relatório de avaliação"], images:[] },
+  { id:"industrial-01", title:"Manutenção Industrial", category:"industrial", categoryLabel:"Industrial", desc:"Serviço de manutenção voltado ao ambiente industrial.", location:null, services:["Avaliação do ambiente","Execução do serviço","Checagem final"], images:[] }
 ];
 
-// Antes / Depois — pronto para receber pares de fotos reais
-const BEFORE_AFTER = [
-  { title:"Pintura de fachada", category:"Pintura" },
-  { title:"Recuperação de estrutura", category:"Manutenção Predial" }
+/* ANTES / DEPOIS — alimentado a partir das pastas em
+   imagens/antes-depois/<Nome do Comparativo>/ (uma foto "antes"
+   e uma "depois" dentro de cada pasta). */
+const BEFORE_AFTER = (window.BEFORE_AFTER_DATA && window.BEFORE_AFTER_DATA.length) ? window.BEFORE_AFTER_DATA : [
+  { title:"Pintura de fachada", before:null, after:null },
+  { title:"Recuperação de estrutura", before:null, after:null }
 ];
 
 // Destaques da empresa
@@ -1001,11 +1025,13 @@ const HIGHLIGHTS = [
   { title:"Compromisso", desc:"Foco em organização, prazo e satisfação do cliente." }
 ];
 
-// Experiência / projetos realizados (sequência)
-const EXPERIENCE = [
-  { tag:"Projeto", title:"Manutenção predial em condomínio", desc:"Serviço realizado com foco em conservação e reparo de estrutura." },
-  { tag:"Projeto", title:"Pintura de área externa", desc:"Preparação de superfície e aplicação de pintura." },
-  { tag:"Projeto", title:"Instalação de linha de vida", desc:"Sistema de segurança instalado para trabalho em altura." }
+/* Experiência / projetos realizados — alimentado a partir das pastas
+   em imagens/projetos-realizados/<Nome do Projeto>/. O nome da pasta
+   vira o título e a primeira foto encontrada vira a imagem do item. */
+const EXPERIENCE = (window.EXPERIENCE_DATA && window.EXPERIENCE_DATA.length) ? window.EXPERIENCE_DATA : [
+  { tag:"Projeto", title:"Manutenção predial em condomínio", desc:"Serviço realizado com foco em conservação e reparo de estrutura.", image:null },
+  { tag:"Projeto", title:"Pintura de área externa", desc:"Preparação de superfície e aplicação de pintura.", image:null },
+  { tag:"Projeto", title:"Instalação de linha de vida", desc:"Sistema de segurança instalado para trabalho em altura.", image:null }
 ];
 
 /* ============================================================
@@ -1014,6 +1040,9 @@ const EXPERIENCE = [
 
 function placeholderPhoto(){
   return `<div class="ph-label">${ICONS.photo}Adicionar foto do serviço</div>`;
+}
+function imgTag(src, alt){
+  return `<img src="${encodeURI(src)}" alt="${alt.replace(/"/g,'&quot;')}" loading="lazy">`;
 }
 
 function renderServices(){
@@ -1039,7 +1068,7 @@ function renderPortfolio(){
     <article class="pf-card show" data-category="${p.category}" data-index="${i}">
       <div class="pf-photo">
         <span class="pf-cat-tag">${p.categoryLabel}</span>
-        ${placeholderPhoto()}
+        ${p.images && p.images.length ? imgTag(p.images[0], p.title) : placeholderPhoto()}
       </div>
       <div class="pf-body">
         <h3>${p.title}</h3>
@@ -1057,13 +1086,11 @@ function renderBeforeAfter(){
     <div class="reveal">
       <div class="ba-slider" data-ba="${i}">
         <div class="ba-before">
-          <span>${ICONS.photo}</span>
-          Adicionar foto — antes
+          ${b.before ? imgTag(b.before, b.title + " — antes") : `<span>${ICONS.photo}</span>Adicionar foto — antes`}
         </div>
         <div class="ba-after" style="clip-path:inset(0 0 0 50%);">
           <div class="ba-after-inner">
-            ${ICONS.photo}
-            Adicionar foto — depois
+            ${b.after ? imgTag(b.after, b.title + " — depois") : `${ICONS.photo}Adicionar foto — depois`}
           </div>
         </div>
         <span class="ba-tag before">Antes</span>
@@ -1073,7 +1100,6 @@ function renderBeforeAfter(){
       </div>
       <div class="ba-caption">
         <h4>${b.title}</h4>
-        <p>${b.category}</p>
       </div>
     </div>
   `).join("");
@@ -1111,7 +1137,7 @@ function renderExperience(){
         <h4>${e.title}</h4>
         <p>${e.desc}</p>
       </div>
-      <div class="exp-photo"><span>${ICONS.photo} Adicionar foto do resultado</span></div>
+      <div class="exp-photo">${e.image ? imgTag(e.image, e.title) : `<span>${ICONS.photo} Adicionar foto do resultado</span>`}</div>
     </div>
   `).join("");
 }
@@ -1192,14 +1218,21 @@ const lightbox = document.getElementById("lightbox");
 const lbCounter = document.getElementById("lbCounter");
 let lbTotal = 1, lbIndex = 0;
 
-function openLightbox(total){
-  lbTotal = total || 1; lbIndex = 0;
+function openLightbox(total, startIndex){
+  lbTotal = total || 1; lbIndex = startIndex || 0;
   updateLightbox();
   lightbox.classList.add("open");
   document.body.style.overflow = "hidden";
 }
 function updateLightbox(){
   lbCounter.textContent = `${lbIndex+1} / ${lbTotal}`;
+  const lbImage = document.getElementById("lbImage");
+  const src = currentGalleryImages[lbIndex];
+  if(src){
+    lbImage.innerHTML = imgTag(src, "Foto " + (lbIndex+1));
+  } else {
+    lbImage.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="11" r="2"/><path d="M21 16l-5-4-4 3-3-2-5 4"/></svg><span id="lbLabel">Adicionar foto do serviço</span>`;
+  }
 }
 function closeLightbox(){
   lightbox.classList.remove("open");
@@ -1214,15 +1247,26 @@ lightbox.addEventListener("click", e => { if(e.target === lightbox) closeLightbo
    PROJECT MODAL (página individual do projeto)
    ============================================================ */
 const projectModal = document.getElementById("projectModal");
+let currentGalleryImages = [];
 
 function openProject(project){
   document.getElementById("pmCat").textContent = project.categoryLabel;
   document.getElementById("pmTitle").textContent = project.title;
   document.getElementById("pmDesc").textContent = project.desc;
   document.getElementById("pmServices").innerHTML = project.services.map(s => `<li>${ICONS.check}${s}</li>`).join("");
-  document.getElementById("pmGallery").innerHTML = Array.from({length: project.gallery}).map((_,i) =>
-    `<div data-gallery-index="${i}">${ICONS.photo}</div>`
-  ).join("");
+
+  const images = (project.images && project.images.length) ? project.images : [];
+  currentGalleryImages = images;
+
+  const pmHero = document.getElementById("pmHero");
+  pmHero.innerHTML = images.length
+    ? imgTag(images[0], project.title)
+    : `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" width="30" height="30"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="11" r="2"/><path d="M21 16l-5-4-4 3-3-2-5 4"/></svg>`;
+
+  document.getElementById("pmGallery").innerHTML = images.length
+    ? images.map((img,i) => `<div data-gallery-index="${i}">${imgTag(img, project.title + " — foto " + (i+1))}</div>`).join("")
+    : Array.from({length: 3}).map((_,i) => `<div data-gallery-index="${i}">${ICONS.photo}</div>`).join("");
+
   projectModal.classList.add("open");
   document.body.style.overflow = "hidden";
   history.pushState({project: project.id}, "", "#projeto/" + project.id);
@@ -1245,7 +1289,7 @@ document.getElementById("portfolioGrid").addEventListener("click", e => {
 document.getElementById("pmGallery").addEventListener("click", e => {
   const item = e.target.closest("[data-gallery-index]");
   if(!item) return;
-  openLightbox(document.querySelectorAll("#pmGallery > div").length);
+  openLightbox(document.querySelectorAll("#pmGallery > div").length, Number(item.dataset.galleryIndex));
 });
 
 // abrir projeto direto por hash (compartilhamento de link)
