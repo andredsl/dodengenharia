@@ -30,19 +30,6 @@ const PASTA_DADOS = path.join(RAIZ, "imagens", "dados");
 
 const EXT_IMAGEM = [".jpg", ".jpeg", ".png", ".webp"];
 
-// Categorias fixas do site (mesmas usadas pelos cards de serviço).
-// O nome da subpasta dentro de "nossos-trabalhos" deve corresponder
-// a uma destas chaves (sem acento e sem espaço) OU ao rótulo exato.
-const CATEGORIAS_CONHECIDAS = [
-  { key: "pintura", label: "Pintura" },
-  { key: "manutencao-predial", label: "Manutenção Predial" },
-  { key: "solar", label: "Solar" },
-  { key: "linha-vida", label: "Linha de Vida" },
-  { key: "servicos-civis", label: "Serviços Civis" },
-  { key: "inspecoes", label: "Inspeções" },
-  { key: "industrial", label: "Industrial" }
-];
-
 function normalizar(txt) {
   return txt
     .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
@@ -133,17 +120,12 @@ function gerarAntesDepois() {
 function gerarNossosTrabalhos() {
   const categoriasPastas = listarPastas(PASTA_TRABALHOS);
   const projetos = [];
-  const categoriasExtras = [];
 
   categoriasPastas.forEach(nomeCategoria => {
-    const conhecida = CATEGORIAS_CONHECIDAS.find(c =>
-      normalizar(c.label) === normalizar(nomeCategoria) || c.key === normalizar(nomeCategoria)
-    );
-    const categoryKey = conhecida ? conhecida.key : slug(nomeCategoria);
-    const categoryLabel = conhecida ? conhecida.label : nomeCategoria;
-    if (!conhecida && !categoriasExtras.find(c => c.key === categoryKey)) {
-      categoriasExtras.push({ key: categoryKey, label: categoryLabel });
-    }
+
+    // A categoria vem diretamente do nome da pasta
+    const categoryKey = slug(nomeCategoria);
+    const categoryLabel = nomeCategoria;
 
     const dirCategoria = path.join(PASTA_TRABALHOS, nomeCategoria);
     const pastasProjeto = listarPastas(dirCategoria);
@@ -151,16 +133,29 @@ function gerarNossosTrabalhos() {
     pastasProjeto.forEach(nomeProjeto => {
       const dirProjeto = path.join(dirCategoria, nomeProjeto);
       const imagens = listarImagens(dirProjeto);
+
       if (imagens.length === 0) {
-        console.warn(`[nossos-trabalhos] "${nomeCategoria}/${nomeProjeto}" ignorado: sem fotos.`);
+        console.warn(
+          `[nossos-trabalhos] "${nomeCategoria}/${nomeProjeto}" ignorado: sem fotos.`
+        );
         return;
       }
-      const descricao = lerArquivoTexto(dirProjeto, "descricao.txt") ||
+
+      const descricao =
+        lerArquivoTexto(dirProjeto, "descricao.txt") ||
         `Serviço de ${categoryLabel.toLowerCase()} executado com foco em qualidade e segurança.`;
-      const local = lerArquivoTexto(dirProjeto, "local.txt") || null;
-      const servicosTxt = lerArquivoTexto(dirProjeto, "servicos.txt");
+
+      const local =
+        lerArquivoTexto(dirProjeto, "local.txt") || null;
+
+      const servicosTxt =
+        lerArquivoTexto(dirProjeto, "servicos.txt");
+
       const services = servicosTxt
-        ? servicosTxt.split("\n").map(s => s.trim()).filter(Boolean)
+        ? servicosTxt
+            .split("\n")
+            .map(s => s.trim())
+            .filter(Boolean)
         : ["Execução do serviço conforme escopo definido"];
 
       projetos.push({
@@ -171,16 +166,32 @@ function gerarNossosTrabalhos() {
         desc: descricao,
         location: local,
         services: services,
-        images: imagens.map(img => caminhoWeb("imagens", "nossos-trabalhos", nomeCategoria, nomeProjeto, img))
+        images: imagens.map(img =>
+          caminhoWeb(
+            "imagens",
+            "nossos-trabalhos",
+            nomeCategoria,
+            nomeProjeto,
+            img
+          )
+        )
       });
     });
   });
 
-  const filters = [{ key: "todos", label: "Todos" }]
-    .concat(CATEGORIAS_CONHECIDAS)
-    .concat(categoriasExtras);
+  // Os filtros são criados SOMENTE pelas pastas existentes
+  const filters = [
+    { key: "todos", label: "Todos" },
+    ...categoriasPastas.map(nomeCategoria => ({
+      key: slug(nomeCategoria),
+      label: nomeCategoria
+    }))
+  ];
 
-  return { projects: projetos, filters };
+  return {
+    projects: projetos,
+    filters: filters
+  };
 }
 
 /* ------------------------------------------------------------

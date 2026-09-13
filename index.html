@@ -339,6 +339,20 @@ h1,h2,h3,h4{font-family:var(--disp);font-weight:700;letter-spacing:0.01em;line-h
 .ba-tag{position:absolute;top:14px;font-family:var(--mono);font-size:11px;letter-spacing:0.1em;padding:5px 12px;border:1px solid var(--accent-dim);color:var(--accent);background:rgba(18,21,26,0.85);}
 .ba-tag.before{left:14px;}
 .ba-tag.after{right:14px;}
+.ba-before .ba-tag{
+  z-index: 10;
+}
+
+.ba-after-inner .ba-tag{
+  z-index: 10;
+}
+.ba-before {
+  clip-path: inset(0 50% 0 0);
+}
+
+.ba-after {
+  clip-path: inset(0 0 0 50%);
+}
 .ba-handle{
   position:absolute;top:0;bottom:0;width:2px;background:var(--accent-2);left:50%;
   transform:translateX(-50%);cursor:ew-resize;z-index:5;
@@ -521,6 +535,30 @@ footer{background:var(--bg-alt-2);border-top:1px solid var(--border);padding:80p
 .pm-content::-webkit-scrollbar-thumb{background:var(--border);}
 
 .divider{height:1px;background:var(--border);width:100%;}
+
+.ba-hidden {
+  display: none !important;
+}
+
+.ba-single {
+  overflow: hidden;
+}
+
+.ba-full {
+  clip-path: inset(0 0 0 0) !important;
+}
+
+.ba-full .ba-after-inner {
+  position: absolute;
+  inset: 0;
+}
+
+
+
+/* escondendo a secao experiencia*/
+#experiencia {
+  display: none !important;
+}
 </style>
 </head>
 <body>
@@ -536,7 +574,7 @@ footer{background:var(--bg-alt-2);border-top:1px solid var(--border);padding:80p
       <a href="#empresa">Empresa</a>
       <a href="#servicos">Serviços</a>
       <a href="#portfolio">Portfólio</a>
-      <a href="#experiencia">Projetos</a>
+      <!-- <a href="#experiencia">Projetos</a> -->
       <a href="#contato">Contato</a>
     </nav>
     <div class="nav-actions">
@@ -553,7 +591,7 @@ footer{background:var(--bg-alt-2);border-top:1px solid var(--border);padding:80p
   <a href="#empresa">Empresa</a>
   <a href="#servicos">Serviços</a>
   <a href="#portfolio">Portfólio</a>
-  <a href="#experiencia">Projetos</a>
+  <!-- <a href="#experiencia">Projetos</a> -->
   <a href="#contato">Contato</a>
   <a href="#contato" class="btn btn-primary">Solicitar orçamento</a>
 </nav>
@@ -692,7 +730,7 @@ footer{background:var(--bg-alt-2);border-top:1px solid var(--border);padding:80p
 <!-- ============================================
      ÁREA DE ATUAÇÃO
      ============================================ -->
-<section class="section">
+<!-- <section class="section">
   <span class="section-num">SEÇ. 07 / ATUAÇÃO</span>
   <div class="container">
     <div class="area-wrap">
@@ -719,7 +757,7 @@ footer{background:var(--bg-alt-2);border-top:1px solid var(--border);padding:80p
       </div>
     </div>
   </div>
-</section>
+</section> -->
 
 <!-- Seção "Clientes e parceiros" fica pronta para ser reativada quando houver
      logos autorizados para divulgação — ver bloco comentado no fim do <body>. -->
@@ -842,7 +880,7 @@ footer{background:var(--bg-alt-2);border-top:1px solid var(--border);padding:80p
         <ul>
           <li><a href="#empresa">Empresa</a></li>
           <li><a href="#portfolio">Portfólio</a></li>
-          <li><a href="#experiencia">Projetos</a></li>
+          <!-- <li><a href="#experiencia">Projetos</a></li> -->
           <li><a href="#contato">Contato</a></li>
         </ul>
       </div>
@@ -996,16 +1034,9 @@ const SERVICES = [
 // Categorias de filtro do portfólio — geradas a partir das pastas em
 // imagens/nossos-trabalhos (veja imagens/dados/filtros.js). Se o
 // gerador ainda não rodou, usa esta lista padrão como reserva.
-const FILTERS = (window.FILTERS_DATA && window.FILTERS_DATA.length) ? window.FILTERS_DATA : [
-  { key:"todos", label:"Todos" },
-  { key:"pintura", label:"Pintura" },
-  { key:"manutencao-predial", label:"Manutenção Predial" },
-  { key:"solar", label:"Solar" },
-  { key:"linha-vida", label:"Linha de Vida" },
-  { key:"servicos-civis", label:"Serviços Civis" },
-  { key:"inspecoes", label:"Inspeções" },
-  { key:"industrial", label:"Industrial" }
-];
+const FILTERS = Array.isArray(window.FILTERS_DATA)
+  ? window.FILTERS_DATA
+  : [];
 
 /* PROJETOS — o site se alimenta automaticamente das pastas em
    imagens/nossos-trabalhos/<Categoria>/<Nome do Projeto>/.
@@ -1096,35 +1127,91 @@ function renderPortfolio(){
 
 function renderBeforeAfter(){
   const wrap = document.getElementById("baWrap");
-  wrap.innerHTML = BEFORE_AFTER.map((b,i) => `
-    <div class="reveal">
-      <div class="ba-slider" data-ba="${i}">
-        <div class="ba-before">
-          ${b.before ? imgTag(b.before, b.title + " — antes") : `<span>${ICONS.photo}</span>Adicionar foto — antes`}
+
+  wrap.innerHTML = BEFORE_AFTER.map((b,i) => {
+
+    const hasBefore = !!b.before;
+    const hasAfter = !!b.after;
+    const hasBoth = hasBefore && hasAfter;
+
+    return `
+      <div class="reveal">
+        <div class="ba-slider" data-ba="${i}">
+
+          ${
+            hasBefore
+              ? `
+                <div class="ba-before">
+                  ${imgTag(b.before, b.title + " — antes")}
+                  ${hasBoth ? `<span class="ba-tag before">Antes</span>` : ""}
+                </div>
+              `
+              : ""
+          }
+
+          ${
+            hasAfter
+              ? `
+                <div class="ba-after"
+                     ${hasBoth ? 'style="clip-path:inset(0 0 0 50%);"' : 'style="clip-path:inset(0 0 0 0);"'}>
+
+                  <div class="ba-after-inner">
+                    ${imgTag(b.after, b.title + " — depois")}
+
+                    ${hasBoth ? `<span class="ba-tag after">Depois</span>` : ""}
+                  </div>
+
+                </div>
+              `
+              : ""
+          }
+
+          ${
+            hasBoth
+              ? `
+                <div class="ba-handle" style="left:50%;"></div>
+
+                <input
+                  type="range"
+                  class="ba-range"
+                  min="0"
+                  max="100"
+                  value="50"
+                  aria-label="Comparar antes e depois"
+                >
+              `
+              : ""
+          }
+
         </div>
-        <div class="ba-after" style="clip-path:inset(0 0 0 50%);">
-          <div class="ba-after-inner">
-            ${b.after ? imgTag(b.after, b.title + " — depois") : `${ICONS.photo}Adicionar foto — depois`}
-          </div>
+
+        <div class="ba-caption">
+          <h4>${b.title}</h4>
         </div>
-        <span class="ba-tag before">Antes</span>
-        <span class="ba-tag after">Depois</span>
-        <div class="ba-handle" style="left:50%;"></div>
-        <input type="range" class="ba-range" min="0" max="100" value="50" aria-label="Comparar antes e depois">
       </div>
-      <div class="ba-caption">
-        <h4>${b.title}</h4>
-      </div>
-    </div>
-  `).join("");
+    `;
+  }).join("");
 
   document.querySelectorAll(".ba-slider").forEach(slider => {
+
     const range = slider.querySelector(".ba-range");
+
+    if (!range) return;
+
     const after = slider.querySelector(".ba-after");
     const handle = slider.querySelector(".ba-handle");
+
     range.addEventListener("input", () => {
-      const v = range.value;
+      const v = Number(range.value);
+
+      // Imagem Antes + etiqueta Antes
+      const before = slider.querySelector(".ba-before");
+      before.style.clipPath = `inset(0 ${100 - v}% 0 0)`;
+
+      // Imagem Depois + etiqueta Depois
       after.style.clipPath = `inset(0 0 0 ${v}%)`;
+
+      // Linha central
       handle.style.left = v + "%";
     });
   });

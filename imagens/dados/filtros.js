@@ -6,31 +6,23 @@ window.FILTERS_DATA = [
     "label": "Todos"
   },
   {
-    "key": "pintura",
-    "label": "Pintura"
-  },
-  {
-    "key": "manutencao-predial",
-    "label": "Manutenção Predial"
-  },
-  {
-    "key": "solar",
-    "label": "Solar"
-  },
-  {
-    "key": "linha-vida",
-    "label": "Linha de Vida"
-  },
-  {
-    "key": "servicos-civis",
-    "label": "Serviços Civis"
+    "key": "energia-solar",
+    "label": "Energia Solar"
   },
   {
     "key": "inspecoes",
     "label": "Inspeções"
   },
   {
-    "key": "industrial",
-    "label": "Industrial"
+    "key": "limpeza-tecnica",
+    "label": "Limpeza Técnica"
+  },
+  {
+    "key": "manutencao-industrial",
+    "label": "Manutenção Industrial"
+  },
+  {
+    "key": "trabalho-em-altura",
+    "label": "Trabalho em Altura"
   }
 ];
